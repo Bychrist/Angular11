@@ -1,0 +1,67 @@
+
+<div class="row mt-5">
+    <div class="col-md-6">
+        <!-- create form -->
+
+            <div *ngIf="!toggleTemplate">
+                <h5 style="text-align: center;">Add Projects</h5>
+
+                
+                <div class="form-group">
+                    <label for="">Project Name</label>
+                    <input type="text" required="required" [(ngModel)]="NewProject.projectName" class="form-control"    >
+                </div>
+                <div class="form-group">
+                    <label for="">Date of Birth</label>
+                    <input type="date" [(ngModel)]="NewProject.dateOfBirth" required="required" class="form-control" >
+                </div>
+                <div class="form-group">
+                    <label for="">Team Size</label>
+                    <input type="number" required="required" [(ngModel)]="NewProject.teamSize" class="form-control" >
+                </div>
+                <button   class="btn btn-sm btn-primary" [disabled]="click" (click)="onSaveClick()" >Submit</button>
+
+            </div>
+
+
+        <!-- update form -->
+            <div *ngIf="toggleTemplate">
+                <h5 style="text-align: center;">Update Projects</h5>
+           
+                <input type="hidden" readonly [(ngModel)] = "updateProject.id">
+                
+
+                <div class="form-group">
+                    <label for="">Project Name</label>
+                    <input type="text" required="required" [(ngModel)]="updateProject.projectName" class="form-control"    >
+                </div>
+                <div class="form-group">
+                    <label for="">Date of Birth</label>
+                    <input type="date" [(ngModel)]="updateProject.dateOfBirth" required="required" class="form-control" >
+                </div>
+                <div class="form-group">
+                    <label for="">Team Size</label>
+                    <input type="number" required="required" [(ngModel)]="updateProject.teamSize" class="form-control" >
+                </div>
+                <button   class="btn btn-sm btn-primary"  (click)="update(formIndex)" >Submit</button> &nbsp;&nbsp;
+                <button class="btn btn-danger btn-sm" (click)="CancelEdit()" >Cancel Update</button> &nbsp;&nbsp;
+                
+
+            </div>
+
+    </div>
+    <div class="col-md-6" style="height: 400px;overflow:scroll;">
+        <h5 style="text-align: center;">Your Team and Projects</h5>
+        <ul *ngFor="let project of Projects; let i = index" style="list-style:none;">
+            <li>
+                <p><strong>Project Name:</strong> {{project.projectName | titlecase  }} </p>
+                <p><strong>Date of Birth:</strong> {{project.dateOfBirth | date:"longDate"}} </p>
+                <p><strong>Team Size:</strong> {{project.teamSize}} </p> 
+                <span>&nbsp; <button id="{{project.id}}" class="btn btn-success btn-sm" (click)="Edit($event,i)">Edit</button></span>
+                    
+                <span>&nbsp; <button id="{{project.id}}" class="btn btn-success btn-sm" (click)="Delete($event,i)">Delete</button></span>
+                <hr>
+            </li>
+        </ul>
+    </div>
+</div>

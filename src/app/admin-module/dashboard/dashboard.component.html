@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-4">
+       <strong>Name:</strong>{{Designation}} <br>
+
+       <div *ngIf="template == 0; then firstTemplate else secondTemplate">
+           
+       </div>
+
+       <ng-template #firstTemplate>
+            <h5>I am the first template</h5>
+       </ng-template>
+       <ng-template #secondTemplate>
+        <h5>I am the seconde template</h5>
+        </ng-template>
+        <hr>
+        <h3>The service rendering</h3>
+        <ul *ngFor="let tm of fromServiceTeam; let i = index" style="list-style: none;">
+            <li><strong>{{i + count}}.</strong> {{tm.Region}}  {{tm.Name}}</li>
+        </ul>
+        
+    </div>
+    <div class="col-md-4">
+
+        <ul *ngFor="let c of teamMemberSummary;let i = index" style="list-style: none;">
+            <li ><strong>{{i + count}}</strong>  {{c.CompanyName}} <strong>Sector of Economy:</strong>{{c.Sector}}</li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <span (click)="team($event)">I am going to the market</span>
+        <h1 [ngClass]="(changeClass == true) ? 'show' : 'pale' ">Property Binding with example with class</h1>
+
+        <h1 *ngIf="changeClass">The ngif show and hide if conditon is true or not</h1>
+    </div>
+</div>
