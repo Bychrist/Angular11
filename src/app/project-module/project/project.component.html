@@ -57,9 +57,10 @@
                 <p><strong>Project Name:</strong> {{project.projectName | titlecase  }} </p>
                 <p><strong>Date of Birth:</strong> {{project.dateOfBirth | date:"longDate"}} </p>
                 <p><strong>Team Size:</strong> {{project.teamSize}} </p> 
+                <a (click)="goToDetails(project.id)" class="link-primary btn btn-warning">Detail</a>
                 <span>&nbsp; <button id="{{project.id}}" class="btn btn-success btn-sm" (click)="Edit($event,i)">Edit</button></span>
                     
-                <span>&nbsp; <button id="{{project.id}}" class="btn btn-success btn-sm" (click)="Delete($event,i)">Delete</button></span>
+                <span>&nbsp; <button id="{{project.id}}"  class="btn btn-danger btn-sm" (click)="Delete($event,i)">Delete</button></span>
                 <hr>
             </li>
         </ul>

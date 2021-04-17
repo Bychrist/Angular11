@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Project } from '../project-class';
 import { ProjectService } from '../project-service.service';
+
+
 
 @Component({
   selector: 'app-project',
@@ -16,7 +19,7 @@ export class ProjectComponent implements OnInit {
    updateProject:Project = new Project();
    formIndex:number;
    click = false;
-   constructor(private projectService:ProjectService) { }
+   constructor(private projectService:ProjectService, private route:Router) { }
 
   ngOnInit(): void {
 
@@ -30,7 +33,10 @@ export class ProjectComponent implements OnInit {
 
   }
 
-
+  goToDetails(id:number)
+  {
+     this.route.navigateByUrl(`/projectdetail/${id}`);
+  }
   
   onSaveClick()
   {
@@ -86,6 +92,8 @@ export class ProjectComponent implements OnInit {
               this.Projects[formIndex].dateOfBirth = response.dateOfBirth;
               this.Projects[formIndex].projectName = response.projectName;
               this.Projects[formIndex].teamSize = response.teamSize;
+              this.route.navigateByUrl(`/projectdetail/${response.id}`);
+
           },
 
             (error) => {
@@ -104,20 +112,23 @@ export class ProjectComponent implements OnInit {
 
   Delete($event,i)
   {
-      
-     this.projectService.deleteProject($event.target.id).subscribe(
-       (response:Project) => {
-           
-         this.Projects.splice(i,1);
-         console.log(response)
-
-       }, 
-       
-       (error) => {
-          console.log(error)
-       }
-       
-       );
+      if(confirm("Are you sure you"))
+      {
+        this.projectService.deleteProject($event.target.id).subscribe(
+          (response:Project) => {
+              
+            this.Projects.splice(i,1);
+            console.log(response)
+   
+          }, 
+          
+          (error) => {
+             console.log(error)
+          }
+          
+          );
+      }
+     
   }
 
 

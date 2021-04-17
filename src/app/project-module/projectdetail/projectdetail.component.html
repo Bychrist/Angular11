@@ -1,0 +1,17 @@
+<div class="container mt-5">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header" style="text-align: center;">
+              <strong>Project Name: </strong> {{project.projectName | uppercase}}
+            </div>
+            <div class="card-body">
+              <p class="card-text"><strong>Team Size: </strong>{{project.teamSize}}</p>
+              <p class="card-text"><strong>Date: </strong>{{project.dateOfBirth | date:"longDate"}}</p>
+
+              <a (click)="goToProject()" class="btn btn-primary btn-sm">Back</a>
+            </div>
+          </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
