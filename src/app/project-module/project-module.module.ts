@@ -4,6 +4,7 @@ import { ProjectComponent } from './project/project.component';
 import { FormsModule }   from '@angular/forms';
  import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectdetailComponent } from './projectdetail/projectdetail.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -15,7 +16,8 @@ import { ProjectdetailComponent } from './projectdetail/projectdetail.component'
   imports: [
   CommonModule,
   ReactiveFormsModule,
-  FormsModule
+  FormsModule,
+  AppRoutingModule,
 
   ]
 })

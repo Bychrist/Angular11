@@ -8,11 +8,13 @@ import { ProjectModule } from './project-module/project-module.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
  import { ReactiveFormsModule } from '@angular/forms';
+import { ChildComponent } from './child/child.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ChildComponent,
   ],
   imports: [
   BrowserModule,

@@ -28,3 +28,6 @@
 <div class="container-fluid">
   <router-outlet></router-outlet>
 </div>
+
+<app-child  [getGabriel]="gabriel" [getAbleGod]="ableGod" (parentReceiveFromChild) ="parentReceiveFromChild($event)"></app-child>
+<h3>From Parent {{name}}</h3>

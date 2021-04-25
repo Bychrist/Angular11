@@ -1,0 +1,12 @@
+<h2>Transfer Data From Parent Component to Child </h2>
+<br><br><br>
+<ul>
+    <li> <strong>Name: </strong> {{getGabriel.name}} </li>
+    <li><strong>Age: </strong> {{getGabriel.age}}</li>
+    <li><strong>Office: </strong> {{getGabriel.office}}</li>
+</ul>
+<h2>The Second data passed from parent</h2>
+<h3>{{getAbleGod}}</h3>
+
+<input type="text"  [(ngModel)] = "name"  >
+<button (click)="sendToParent()">send to parent</button>

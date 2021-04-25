@@ -9,7 +9,7 @@
               <p class="card-text"><strong>Team Size: </strong>{{project.teamSize}}</p>
               <p class="card-text"><strong>Date: </strong>{{project.dateOfBirth | date:"longDate"}}</p>
 
-              <a (click)="goToProject()" class="btn btn-primary btn-sm">Back</a>
+              <a [routerLink]="['/project']" class="btn btn-primary btn-sm">Back</a>
             </div>
           </div>
     </div>
